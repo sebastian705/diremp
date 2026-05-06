@@ -18,7 +18,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/auth/login', [AuthController::class, 'login']);
 
     ///Private
-    Route::group(['middleware'=> 'auth/sanctum'], function () {
+    Route::group(['middleware' => 'auth:sanctum'], function () {
         //::auth
         Route::post('/auth/logout', [AuthController::class, 'logout']);
         //::rol client
