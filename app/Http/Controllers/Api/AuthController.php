@@ -37,7 +37,8 @@ class AuthController extends Controller
         return response()->json($response, 200);
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $response = ["success" => false];
         //validacion
         $validator = Validator::make($request->all(), [
@@ -50,9 +51,25 @@ class AuthController extends Controller
             return response()->json($response, 200);
         }
 
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password]))
-        {
-
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            $user = auth()->user();
+            $user->hasRole("client");
+            $response['token'] = $user->createToken("Codea")->plainTextToken;
+            $response['user'] = $user;
+            $response['success'] = true;
         }
+
+        return response()->json($response, 200);
+    }
+
+    public function logout()
+    {
+        $response = ['success' => false];
+        auth()->user()->tokens()->delete();
+        $response = [
+            'success' => true,
+            'message' => 'Sesión cerrada'
+        ];
+        return response()->json($response, 200);
     }
 }
