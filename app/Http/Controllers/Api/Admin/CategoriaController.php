@@ -11,7 +11,7 @@ class CategoriaController extends Controller
 {
     public function index()
     {
-        $data = Categoria::orderBy("orden")->get(["id", "name"]);
+        $data = Categoria::orderBy("orden")->get(["id", "nombre"]);
         return response()->json($data, 200);
     }
 
@@ -37,6 +37,8 @@ class CategoriaController extends Controller
 
             $data->urlfoto = Str::slug($request->nombre) . '.' . $image_type;
         }
+
+        $data->slug = Str::slug($request->nombre);
         $data->save();
 
         return response()->json($data, 200);
@@ -51,10 +53,36 @@ class CategoriaController extends Controller
     public function update(Request $request, $id)
     {
         //validacion
-
         $data = Categoria::find($id);
         $data->fill($request->all());
+
+        if ($request->urlfoto) {
+            $img = $request->urlfoto;
+            //process
+            $folderPath = "/img/categoria/";
+            $image_parts = explode(";base64,", $img);
+            $image_type_aux = explode("image/", $image_parts[0]);
+            $image_type = $image_type_aux[1];
+
+            // 3. Decodificar el contenido Base64
+            $image_base64 = base64_decode($image_parts[1]);
+
+            // 4. Crear un nombre único para el archivo
+            $file = $folderPath . Str::slug($request->nombre) . '.' . $image_type;
+            file_put_contents(public_path($file), $image_base64);
+
+            $data->urlfoto = Str::slug($request->nombre) . '.' . $image_type;
+        }
+
+        $data->slug = Str::slug($request->nombre);
         $data->save();
         return response()->json($data, 200);
+    }
+
+    public function destroy($id) 
+    {
+        $data = Categoria::find($id);
+        $data->delete();
+        return response()->json("Borrado", 200);
     }
 }
