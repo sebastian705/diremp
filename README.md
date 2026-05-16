@@ -16,7 +16,7 @@
 
 ## 🛠️ Stack Tecnológico
 
-*   **Backend:** Laravel 11+, PHP 8.2+
+*   **Backend:** Laravel 12+, PHP 8.2+
 *   **Frontend:** React, JavaScript (ES6+), React Router
 *   **Seguridad:** Laravel Sanctum (Tokens de autenticación)
 *   **Estilos:** CSS3 / Tailwind CSS (Interfaz 100% responsiva y adaptativa)
@@ -31,7 +31,7 @@ Asegúrate de tener instalado en tu máquina local:
 *   PHP 8.2 o superior
 *   Composer
 *   Node.js (Versión LTS recomendado)
-*   pnpm (`npm install -g pnpm`)
+*   pnpm
 *   MySQL
 
 ---
@@ -40,5 +40,5 @@ Asegúrate de tener instalado en tu máquina local:
 
 ### 1. Clonar el repositorio
 ```bash
-git clone [https://github.com/tu-usuario/diremp.git](https://github.com/tu-usuario/diremp.git)
+git clone [https://github.com/sebastian705/diremp.git](https://github.com/sebastian705/diremp.git)
 cd diremp
