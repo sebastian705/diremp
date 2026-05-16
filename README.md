@@ -1,59 +1,44 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Diremp - Sistema de Directorio Empresarial
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Diremp** es una aplicación web moderna (SPA) diseñada para la gestión, registro y búsqueda centralizada de directorios de empresas. El proyecto está construido bajo una arquitectura desacoplada, utilizando **Laravel** como una API REST robusta y segura, y **React** en el frontend para ofrecer una interfaz de usuario fluida, reactiva y de alto rendimiento.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Características y Funcionalidades Técnicas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+*   **Arquitectura API RESTful:** Backend desacoplado desarrollado en Laravel para procesar la lógica de negocio, consultas optimizadas a la base de datos y respuestas JSON consistentes.
+*   **Autenticación por Tokens (Stateless):** Flujo de seguridad implementado con **Laravel Sanctum** para la emisión, validación y almacenamiento seguro de tokens de sesión, garantizando comunicaciones cifradas entre React y el servidor.
+*   **Control de Acceso basado en Roles (RBAC):** Sistema estricto de roles y permisos. El backend restringe los endpoints mediante *Middlewares*, mientras que el frontend protege las rutas de navegación dinámicamente según el tipo de usuario (Administrador, Empresa, Usuario).
+*   **Interfaz SPA Interactiva:** Desarrollada con componentes reutilizables en **React**, asegurando una navegación instantánea, manejo eficiente del estado y manipulación óptima del DOM sin recargas de página.
+*   **Formularios Dinámicos y Asíncronos:** Gestión avanzada de formularios con validación de datos en tiempo real (tanto en cliente como en servidor), utilizando peticiones HTTP asíncronas con **Axios / Fetch API**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🛠️ Stack Tecnológico
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+*   **Backend:** Laravel 11+, PHP 8.2+
+*   **Frontend:** React, JavaScript (ES6+), React Router
+*   **Seguridad:** Laravel Sanctum (Tokens de autenticación)
+*   **Estilos:** CSS3 / Tailwind CSS (Interfaz 100% responsiva y adaptativa)
+*   **Base de Datos:** MySQL
+*   **Gestores de Paquetes:** Composer (PHP) y pnpm (JavaScript)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 💻 Requisitos Previos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Asegúrate de tener instalado en tu máquina local:
+*   PHP 8.2 o superior
+*   Composer
+*   Node.js (Versión LTS recomendado)
+*   pnpm (`npm install -g pnpm`)
+*   MySQL
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🔧 Instalación y Configuración Paso a Paso
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 1. Clonar el repositorio
+```bash
+git clone [https://github.com/tu-usuario/diremp.git](https://github.com/tu-usuario/diremp.git)
+cd diremp
